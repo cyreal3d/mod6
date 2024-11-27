@@ -13,7 +13,7 @@ window.addEventListener('resize', () => {
 
 // Background and Apple Images
 const backgroundImage = new Image();
-backgroundImage.src = 'background.jpg'; // Ensure background.jpg is in the same directory
+backgroundImage.src = 'background3.jpg'; // Ensure background.jpg is in the same directory
 
 const appleImage = new Image();
 appleImage.src = 'apple.png'; // Ensure apple.png is in the same directory
