@@ -176,8 +176,8 @@ function resolveCollisions() {
         apple2.y += Math.sin(angle) * overlap * 0.5;
 
         // Exchange velocities (gentler effect)
-        [apple1.dx, apple2.dx] = [apple2.dx * 0.7, apple1.dx * 0.7];
-        [apple1.dy, apple2.dy] = [apple2.dy * 0.7, apple1.dy * 0.7];
+        [apple1.dx, apple2.dx] = [apple2.dx * 0.7, apple1.dx * 0.8];
+        [apple1.dy, apple2.dy] = [apple2.dy * 0.7, apple1.dy * 0.8];
       }
     }
   }
