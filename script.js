@@ -13,14 +13,14 @@ window.addEventListener('resize', () => {
 
 // Background and Apple Images
 const backgroundImage = new Image();
-backgroundImage.src = 'background3.jpg'; // Ensure background.jpg is in the same directory
+backgroundImage.src = 'background.jpg'; // Ensure background.jpg is in the same directory
 
 const appleImage = new Image();
 appleImage.src = 'apple.png'; // Ensure apple.png is in the same directory
 
 // Gravity and Damping
 let gravity = 0.5;
-const damping = 0.7; // Energy loss on bounce (less reactive collisions)
+const damping = 0.85; // Slightly more bouncy for collisions
 
 // Apple Class
 class Apple {
@@ -64,15 +64,15 @@ class Apple {
   }
 }
 
-// Create Apples (Reduced Number)
+// Create Apples (Increased to 25)
 const apples = [];
-const maxApples = 25; // Fewer apples for a simpler setup
+const maxApples = 25; // Increased number of apples
 for (let i = 0; i < maxApples; i++) {
   const size = 50;
   const x = Math.random() * (canvas.width - size);
   const y = Math.random() * (canvas.height / 2);
-  const dx = (Math.random() - 0.5) * 3; // Reduced initial velocity
-  const dy = Math.random() * -3;
+  const dx = (Math.random() - 0.5) * 4; // Increased initial velocity for liveliness
+  const dy = Math.random() * -4;
   apples.push(new Apple(x, y, size, dx, dy));
 }
 
@@ -153,7 +153,7 @@ canvas.addEventListener('touchend', () => {
   }
 });
 
-// Collision Detection (Less Reactive)
+// Collision Detection (Slightly More Reactive)
 function resolveCollisions() {
   for (let i = 0; i < apples.length; i++) {
     for (let j = i + 1; j < apples.length; j++) {
@@ -170,14 +170,14 @@ function resolveCollisions() {
         const overlap = (apple1.size - distance) / 2;
         const angle = Math.atan2(dy, dx);
 
-        apple1.x -= Math.cos(angle) * overlap * 0.5; // Reduced reaction
-        apple1.y -= Math.sin(angle) * overlap * 0.5;
-        apple2.x += Math.cos(angle) * overlap * 0.5;
-        apple2.y += Math.sin(angle) * overlap * 0.5;
+        apple1.x -= Math.cos(angle) * overlap * 0.7; // Adjust overlap resolution
+        apple1.y -= Math.sin(angle) * overlap * 0.7;
+        apple2.x += Math.cos(angle) * overlap * 0.7;
+        apple2.y += Math.sin(angle) * overlap * 0.7;
 
-        // Exchange velocities (gentler effect)
-        [apple1.dx, apple2.dx] = [apple2.dx * 1, apple1.dx * 1];
-        [apple1.dy, apple2.dy] = [apple2.dy * 1, apple1.dy * 1];
+        // Exchange velocities (more reactive effect)
+        [apple1.dx, apple2.dx] = [apple2.dx * 0.9, apple1.dx * 0.9];
+        [apple1.dy, apple2.dy] = [apple2.dy * 0.9, apple1.dy * 0.9];
       }
     }
   }
