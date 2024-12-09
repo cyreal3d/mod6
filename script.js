@@ -170,10 +170,10 @@ function resolveCollisions() {
         const overlap = (apple1.size - distance) / 2;
         const angle = Math.atan2(dy, dx);
 
-        apple1.x -= Math.cos(angle) * overlap * 0.5; // Adjust overlap resolution
-        apple1.y -= Math.sin(angle) * overlap * 0.5;
-        apple2.x += Math.cos(angle) * overlap * 0.5;
-        apple2.y += Math.sin(angle) * overlap * 0.5;
+        apple1.x -= Math.cos(angle) * overlap * 0.7; // Adjust overlap resolution
+        apple1.y -= Math.sin(angle) * overlap * 0.7;
+        apple2.x += Math.cos(angle) * overlap * 0.7;
+        apple2.y += Math.sin(angle) * overlap * 0.7;
 
         // Exchange velocities (more reactive effect)
         [apple1.dx, apple2.dx] = [apple2.dx * 0.9, apple1.dx * 0.9];
@@ -203,7 +203,7 @@ sliderContainer.style.position = "absolute";
 sliderContainer.style.top = "40px";
 sliderContainer.style.left = "40px";
 sliderContainer.style.background = "rgba(0, 0, 0, 0.5)";
-sliderContainer.style.padding = "10px";
+sliderContainer.style.padding = "40px";
 sliderContainer.style.borderRadius = "5px";
 sliderContainer.style.color = "white";
 sliderContainer.style.zIndex = "1000";
